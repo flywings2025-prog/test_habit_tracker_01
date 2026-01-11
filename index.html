@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Habit Grove · Daily Habit Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Libre+Franklin:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- SECTION: Header -->
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-mark">HG</div>
+          <div class="brand-copy">
+            <h1 class="app-title">Habit Grove</h1>
+            <p class="app-subtitle">Grow your habits one day at a time.</p>
+          </div>
+        </div>
+        <div class="today-pill" id="today-label"></div>
+      </header>
+
+      <!-- SECTION: Main Layout -->
+      <main class="app-main">
+        <!-- Left column: checklist + add habit -->
+        <section class="panel panel-primary" aria-label="Today's habits">
+          <header class="panel-header">
+            <h2>Today&apos;s Checklist</h2>
+            <button class="ghost-button" id="clear-today">Reset today</button>
+          </header>
+
+          <ul class="habit-list" id="habit-list" aria-live="polite"></ul>
+
+          <!-- SECTION: Add habit form -->
+          <form class="add-habit" id="add-habit-form">
+            <h3>Add a new habit</h3>
+            <div class="field-row">
+              <label class="field">
+                <span class="field-label">Habit name</span>
+                <input
+                  type="text"
+                  id="habit-name-input"
+                  name="habitName"
+                  placeholder="e.g. Morning walk"
+                  autocomplete="off"
+                  required
+                />
+              </label>
+              <button type="submit" class="primary-button">Add</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Right column: progress, history, calendar -->
+        <section class="panel panel-secondary" aria-label="Habit progress">
+          <!-- SECTION: Points & levels -->
+          <section class="stats" aria-label="Motivation stats">
+            <div class="stat-card">
+              <span class="stat-label">Points</span>
+              <span class="stat-value" id="points-value">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Level</span>
+              <span class="stat-value" id="level-value">Seedling</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar">
+                <div class="progress-fill" id="level-progress"></div>
+              </div>
+              <p class="progress-caption" id="level-caption"></p>
+            </div>
+          </section>
+
+          <!-- SECTION: History list -->
+          <section class="history" aria-label="History list">
+            <header class="section-header">
+              <h3>History</h3>
+              <select id="history-habit-select" class="select-input"></select>
+            </header>
+            <ul class="history-list" id="history-list"></ul>
+          </section>
+
+          <!-- SECTION: Calendar view -->
+          <section class="calendar" aria-label="Calendar view">
+            <header class="section-header">
+              <h3>Calendar</h3>
+              <div class="calendar-legend">
+                <span class="legend-item"><span class="dot done"></span> Done</span>
+                <span class="legend-item"><span class="dot partial"></span> Some done</span>
+                <span class="legend-item"><span class="dot missed"></span> None</span>
+              </div>
+            </header>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </section>
+        </section>
+      </main>
+
+      <!-- SECTION: Footer -->
+      <footer class="app-footer">
+        <p>Progress is stored in this browser only. Clear your cache to reset.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
